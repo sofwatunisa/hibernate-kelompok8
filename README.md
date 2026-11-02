@@ -1,79 +1,164 @@
-Proyek Web & Hibernate ORM - Kelompok 8
+# Proyek Web & Hibernate ORM - Kelompok 8
 
-Proyek ini adalah aplikasi berbasis Java Web Native (Servlet/WAR) yang mengimplementasikan Hibernate ORM untuk manajemen database MySQL. Proyek ini merupakan bagian dari tugas mata kuliah Rekayasa Perangkat Lunak Lanjut.
+Aplikasi manajemen data pengguna berbasis **Java Web Native** yang mengimplementasikan **Hibernate ORM** untuk mengelola interaksi dengan database MySQL. Proyek ini dikembangkan sebagai bagian dari tugas mata kuliah **Rekayasa Perangkat Lunak Lanjut**.
 
-Anggota Kelompok
+## Anggota Kelompok
 
-Shofwatunnisa
+| No. | Nama Anggota |
+|:---:|---|
+| 1 | Shofwatunnisa |
+| 2 | Siti Dibaj Trikusuma |
+| 3 | Rusmin Nuryadin |
 
-Siti Dibaj Trikusuma
+## Teknologi yang Digunakan
 
-Rusmin Nuryadin
+| Teknologi | Keterangan |
+|---|---|
+| Java | JDK 21 |
+| Hibernate ORM | 6.4.4.Final |
+| Database | MySQL |
+| Database Management | XAMPP / phpMyAdmin |
+| Web Server | Apache Tomcat |
+| Build Tool | Maven |
+| IDE | IntelliJ IDEA |
+| Web Technology | Java Servlet & JSP |
+| Packaging | WAR (Web Application Archive) |
 
-Teknologi yang Digunakan
+## Fitur dan Implementasi
 
-Bahasa: Java (JDK 21)
+Proyek ini memiliki beberapa implementasi utama, yaitu:
 
-Framework ORM: Hibernate Core 6.4.4.Final
+- **Java Web Native:** Migrasi struktur aplikasi dari Spring Boot menjadi Java Web Native menggunakan Servlet, JSP, dan WAR.
+- **Hibernate ORM:** Implementasi Hibernate sebagai Object Relational Mapping (ORM) untuk menghubungkan aplikasi Java dengan database MySQL.
+- **Database Configuration:** Konfigurasi koneksi database melalui file `hibernate.cfg.xml` dengan database `kelompok8_hibernate`.
+- **Entity Mapping:** Penyesuaian mapping kolom menggunakan anotasi `@Column(name = "user_name")` pada entity `User.java` agar sesuai dengan struktur tabel database.
+- **Auto-Seeding Data:** Implementasi mekanisme penyisipan tiga akun pengguna default secara otomatis ketika aplikasi pertama kali dijalankan.
+- **User Authentication:** Fitur autentikasi pengguna menggunakan username dan password yang telah tersimpan di database.
 
-Database: MySQL (XAMPP)
+## Struktur Proyek
 
-Web Server: Apache Tomcat
+```text
+hibernate-kelompok8/
+├── src/
+│   └── main/
+│       ├── java/
+│       │   └── com/example/
+│       │       ├── MainApp.java
+│       │       └── ...
+│       ├── resources/
+│       │   └── hibernate.cfg.xml
+│       └── webapp/
+│           └── ...
+├── pom.xml
+└── README.md
+```
 
-Build Tool: Maven
+## Persyaratan Sistem
 
-IDE: IntelliJ IDEA
+Sebelum menjalankan aplikasi, pastikan beberapa perangkat lunak berikut telah tersedia:
 
-Fitur & Pembaruan Terakhir
+1. JDK 21.
+2. IntelliJ IDEA.
+3. Apache Maven.
+4. XAMPP dengan modul MySQL.
+5. Apache Tomcat.
+6. Browser untuk mengakses aplikasi web.
 
-Migrasi Struktur: Mengubah struktur awal dari Spring Boot menjadi Java Web Native (WAR/JSP/Servlet).
+## Cara Menjalankan Aplikasi
 
-Konfigurasi Hibernate: Pembaruan file hibernate.cfg.xml untuk koneksi ke database kelompok8_hibernate menggunakan kredensial root.
+### 1. Persiapan Database
 
-Mapping Entity: Penyesuaian anotasi @Column(name = "user_name") pada model User.java agar selaras dengan skema database lama (mencegah field default value error).
+1. Buka XAMPP Control Panel.
+2. Jalankan modul **MySQL**.
+3. Buka phpMyAdmin melalui `http://localhost/phpmyadmin`.
+4. Buat database baru dengan nama:
 
-Auto-Seeding Data: Penambahan logika di MainApp.java untuk otomatis menyisipkan 3 akun default anggota kelompok saat aplikasi pertama kali dijalankan.
+   ```sql
+   kelompok8_hibernate
+   ```
 
-Cara Menjalankan Aplikasi
+5. Pastikan konfigurasi database pada file `hibernate.cfg.xml` telah sesuai dengan pengaturan MySQL lokal.
 
-1. Persiapan Database
+Hibernate akan membuat struktur tabel secara otomatis berdasarkan mapping entity yang telah dikonfigurasi.
 
-Pastikan modul MySQL pada XAMPP sudah berjalan (Start).
+### 2. Pengujian Koneksi Hibernate
 
-Buat database baru bernama kelompok8_hibernate di phpMyAdmin (jika belum ada).
+Untuk memastikan Hibernate berhasil terhubung dengan database dan proses penyisipan data berjalan dengan baik:
 
-Struktur tabel users akan digenerate otomatis oleh Hibernate.
+1. Buka proyek melalui IntelliJ IDEA.
+2. Arahkan ke file `src/main/java/com/example/MainApp.java`.
+3. Jalankan method `MainApp.main()`.
+4. Periksa hasil eksekusi pada console.
 
-2. Pengujian Koneksi (Console)
+Apabila proses berhasil, console akan menampilkan pesan:
 
-Untuk memastikan Hibernate terkoneksi dan data default masuk ke database:
+```text
+>>> [SUCCESS] Login Berhasil
+Process finished with exit code 0
+```
 
-Buka file src/main/java/com/example/MainApp.java di IntelliJ.
+### 3. Menjalankan Aplikasi Web Menggunakan Tomcat
 
-Klik tombol Run 'MainApp.main()'.
+1. Buka IntelliJ IDEA.
+2. Pilih menu **Run > Edit Configurations**.
+3. Klik tombol **Add New Configuration**.
+4. Pilih **Tomcat Server > Local**.
+5. Pada bagian **Deployment**, tambahkan artifact:
 
-Pastikan di konsol muncul pesan >>> [SUCCESS] Login Berhasil dan Process finished with exit code 0.
+   ```text
+   hibernate-kelompok8:war exploded
+   ```
 
-3. Menjalankan Web (Tomcat)
+   Jika diperlukan, artifact `.war` juga dapat digunakan.
 
-Buka menu Run > Edit Configurations di IntelliJ.
+6. Atur Application Context menjadi:
 
-Tambahkan Tomcat Server > Local.
+   ```text
+   /hibernate-kelompok8
+   ```
 
-Di tab Deployment, tambahkan Artifact hibernate-kelompok8:war exploded (atau .war).
+7. Klik **Apply**, kemudian **OK**.
+8. Jalankan server Tomcat dengan menekan tombol **Run**.
+9. Buka browser dan akses alamat berikut:
 
-Atur Application context menjadi /hibernate-kelompok8.
+   ```text
+   http://localhost:8080/hibernate-kelompok8/
+   ```
 
-Klik Apply lalu jalankan (Play) server Tomcat.
+## Akun Pengguna
 
-Browser akan terbuka otomatis di http://localhost:8080/hibernate-kelompok8/.
+Aplikasi menyediakan tiga akun default yang dapat digunakan untuk pengujian fitur login.
 
-Kredensial Login
+| No. | Username | Password |
+|:---:|---|---|
+| 1 | `shofwatunnisa` | `123456` |
+| 2 | `sitidibaj` | `123456` |
+| 3 | `rusmin` | `123456` |
 
-Gunakan salah satu akun berikut untuk masuk ke dalam aplikasi web:
+**Catatan:** Akun default dibuat secara otomatis melalui mekanisme auto-seeding ketika aplikasi dijalankan.
 
-Username: shofwatunnisa | Password: 123456
+## Database Configuration
 
-Username: sitidibaj | Password: 123456
+Konfigurasi koneksi database dilakukan melalui file `hibernate.cfg.xml`.
 
-Username: rusmin | Password: 123456
+Parameter konfigurasi yang digunakan:
+
+| Parameter | Nilai |
+|---|---|
+| Database | `kelompok8_hibernate` |
+| DBMS | MySQL |
+| Username | `root` |
+| Password | Kosong (default XAMPP) |
+| ORM | Hibernate 6.4.4.Final |
+
+Sesuaikan konfigurasi tersebut apabila pengaturan MySQL pada lingkungan lokal berbeda.
+
+## Tujuan Proyek
+
+Proyek ini bertujuan untuk mengimplementasikan konsep Object Relational Mapping (ORM) menggunakan Hibernate pada aplikasi Java Web Native, memahami proses konfigurasi koneksi database MySQL, serta menerapkan operasi pengelolaan data pengguna dalam aplikasi berbasis Java.
+
+---
+
+**Mata Kuliah:** Rekayasa Perangkat Lunak Lanjut  
+**Kelompok:** 8  
+**Program Studi:** Teknik Informatika
