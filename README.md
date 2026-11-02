@@ -86,25 +86,6 @@ hibernate-kelompok8/
 └── README.md
 ```
 
-### Keterangan Struktur Folder
-
-| Folder/File | Fungsi |
-|---|---|
-| `controller/` | Mengelola alur permintaan dan proses aplikasi. |
-| `dao/` | Menangani operasi akses dan pengelolaan data pada database. |
-| `model/` | Menyimpan class entity dan representasi data. |
-| `util/` | Menyimpan class utilitas dan konfigurasi pendukung. |
-| `MainApp.java` | Class utama untuk menjalankan dan menguji konfigurasi Hibernate. |
-| `orm/hibernatekelompok8/controller/` | Package controller tambahan dalam proyek. |
-| `resources/templates/` | Menyimpan template yang digunakan aplikasi. |
-| `hibernate.cfg.xml` | File konfigurasi koneksi Hibernate ke database MySQL. |
-| `webapp/` | Menyimpan komponen dan resource aplikasi web. |
-| `target/` | Direktori hasil kompilasi dan build Maven. |
-| `pom.xml` | Mengatur dependensi, konfigurasi, dan proses build Maven. |
-| `mvnw` dan `mvnw.cmd` | Maven Wrapper untuk menjalankan Maven di Linux/macOS dan Windows. |
-| `README.md` | Dokumentasi proyek. |
-```
-
 ## Persyaratan Sistem
 
 Sebelum menjalankan aplikasi, pastikan beberapa perangkat lunak berikut telah tersedia:
