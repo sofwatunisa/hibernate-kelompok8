@@ -45,19 +45,67 @@ Proyek ini memiliki beberapa implementasi utama, yaitu:
 ## Struktur Proyek
 
 ```text
+## Struktur Proyek
+
+```text
 hibernate-kelompok8/
+│
+├── .idea/
+│
+├── .mvn/
+│   └── wrapper/
+│       └── maven-wrapper.properties
+│
 ├── src/
 │   └── main/
+│       │
 │       ├── java/
-│       │   └── com/example/
-│       │       ├── MainApp.java
-│       │       └── ...
+│       │   ├── com/
+│       │   │   └── example/
+│       │   │       ├── controller/
+│       │   │       ├── dao/
+│       │   │       ├── model/
+│       │   │       ├── util/
+│       │   │       └── MainApp.java
+│       │   │
+│       │   └── orm/
+│       │       └── hibernatekelompok8/
+│       │           └── controller/
+│       │
 │       ├── resources/
+│       │   ├── templates/
 │       │   └── hibernate.cfg.xml
+│       │
 │       └── webapp/
-│           └── ...
+│
+├── target/
+│
+├── .gitattributes
+├── .gitignore
+├── HELP.md
+├── mvnw
+├── mvnw.cmd
 ├── pom.xml
 └── README.md
+```
+
+### Keterangan Struktur Folder
+
+| Folder/File | Fungsi |
+|---|---|
+| `controller/` | Mengelola alur permintaan dan proses aplikasi. |
+| `dao/` | Menangani operasi akses dan pengelolaan data pada database. |
+| `model/` | Menyimpan class entity dan representasi data. |
+| `util/` | Menyimpan class utilitas dan konfigurasi pendukung. |
+| `MainApp.java` | Class utama untuk menjalankan dan menguji konfigurasi Hibernate. |
+| `orm/hibernatekelompok8/controller/` | Package controller tambahan dalam proyek. |
+| `resources/templates/` | Menyimpan template yang digunakan aplikasi. |
+| `hibernate.cfg.xml` | File konfigurasi koneksi Hibernate ke database MySQL. |
+| `webapp/` | Menyimpan komponen dan resource aplikasi web. |
+| `target/` | Direktori hasil kompilasi dan build Maven. |
+| `pom.xml` | Mengatur dependensi, konfigurasi, dan proses build Maven. |
+| `mvnw` dan `mvnw.cmd` | Maven Wrapper untuk menjalankan Maven di Linux/macOS dan Windows. |
+| `README.md` | Dokumentasi proyek. |
 ```
 
 ## Persyaratan Sistem
