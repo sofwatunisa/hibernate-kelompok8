@@ -45,9 +45,6 @@ Proyek ini memiliki beberapa implementasi utama, yaitu:
 ## Struktur Proyek
 
 ```text
-## Struktur Proyek
-
-```text
 hibernate-kelompok8/
 │
 ├── .idea/
