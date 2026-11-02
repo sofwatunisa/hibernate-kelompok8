@@ -13,9 +13,9 @@ Aplikasi manajemen data pengguna berbasis **Java Web Native** yang mengimplement
 
 | No. | Nama Anggota |
 |:---:|---|
-| 1 | Shofwatunnisa |
-| 2 | Siti Dibaj Trikusuma |
-| 3 | Rusmin Nuryadin |
+| 1 | Shofwatunnisa | 12409011050121 |
+| 2 | Siti Dibaj Trikusuma | 12409011050117 |
+| 3 | Rusmin Nuryadin | 12409011050120 |
 
 ## Teknologi yang Digunakan
 
