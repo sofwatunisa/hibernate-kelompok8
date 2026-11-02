@@ -11,7 +11,7 @@ Aplikasi manajemen data pengguna berbasis **Java Web Native** yang mengimplement
 ---
 ## Anggota Kelompok
 
-| No. | Nama Anggota | NIM |
+| No. | Nama Anggota |
 |:---:|---| --- |
 | 1 | Shofwatunnisa | 12409011050121 |
 | 2 | Siti Dibaj Trikusuma | 12409011050117 |
