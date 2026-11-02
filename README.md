@@ -2,6 +2,13 @@
 
 Aplikasi manajemen data pengguna berbasis **Java Web Native** yang mengimplementasikan **Hibernate ORM** untuk mengelola interaksi dengan database MySQL. Proyek ini dikembangkan sebagai bagian dari tugas mata kuliah **Rekayasa Perangkat Lunak Lanjut**.
 
+---
+
+**Mata Kuliah:** Rekayasa Perangkat Lunak Lanjut  
+**Kelompok:** 8  
+**Program Studi:** Teknik Informatika
+
+---
 ## Anggota Kelompok
 
 | No. | Nama Anggota |
@@ -157,8 +164,3 @@ Sesuaikan konfigurasi tersebut apabila pengaturan MySQL pada lingkungan lokal be
 
 Proyek ini bertujuan untuk mengimplementasikan konsep Object Relational Mapping (ORM) menggunakan Hibernate pada aplikasi Java Web Native, memahami proses konfigurasi koneksi database MySQL, serta menerapkan operasi pengelolaan data pengguna dalam aplikasi berbasis Java.
 
----
-
-**Mata Kuliah:** Rekayasa Perangkat Lunak Lanjut  
-**Kelompok:** 8  
-**Program Studi:** Teknik Informatika
