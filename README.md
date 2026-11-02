@@ -1,45 +1,79 @@
-# Tutorial dan Sample Application: Hibernate ORM
+Proyek Web & Hibernate ORM - Kelompok 8
 
-Proyek ini merupakan sampel aplikasi sederhana berbasis Java Spring Boot dan Hibernate ORM yang dibangun untuk memenuhi penugasan kelompok mata kuliah Rekayasa Perangkat Lunak Lanjut.
+Proyek ini adalah aplikasi berbasis Java Web Native (Servlet/WAR) yang mengimplementasikan Hibernate ORM untuk manajemen database MySQL. Proyek ini merupakan bagian dari tugas mata kuliah Rekayasa Perangkat Lunak Lanjut.
 
-Aplikasi ini mengimplementasikan konsep dasar Object-Relational Mapping (ORM) dengan melakukan operasi CRUD (Create dan Read) data mahasiswa secara otomatis yang terhubung langsung ke database MySQL.
+Anggota Kelompok
 
----
+Shofwatunnisa
 
-## Anggota Kelompok 8
+Siti Dibaj Trikusuma
 
-| No | Nama | NIM 
-| :-: | :--- | :--- 
-| 1 | Shofwatunnisa | 12409011050121 
-| 2 | Siti Dibaj Trikusuma | 12409011050117 
-| 3 | Rusmin Nuryadin | 12409011050120
+Rusmin Nuryadin
 
----
+Teknologi yang Digunakan
 
-## Teknologi dan Tools
+Bahasa: Java (JDK 21)
 
-* Bahasa Pemrograman: Java 21
-* Framework / Library: Spring Boot (v4.1.2), Hibernate ORM Core (v7.4.13)
-* Build Tool: Maven
-* Database: MySQL (via XAMPP / phpMyAdmin)
-* IDE: IntelliJ IDEA Ultimate
+Framework ORM: Hibernate Core 6.4.4.Final
 
----
+Database: MySQL (XAMPP)
 
-## Struktur Proyek
+Web Server: Apache Tomcat
 
-```text
-hibernate-kelompok8
-├── src
-│   ├── main
-│   │   ├── java
-│   │   │   ├── com.example.entity
-│   │   │   │   └── Mahasiswa.java             # Entity Class (JPA Mapping)
-│   │   │   ├── com.example.util
-│   │   │   │   └── HibernateUtil.java         # Utility SessionFactory Management
-│   │   │   └── com.ormawa.hibernatekelompok8
-│   │   │       └── HibernateKelompok8Application.java # Main Execution & Runner Logic
-│   │   └── resources
-│   │       ├── application.properties         # Spring Boot & Database Configuration
-│   │       └── hibernate.cfg.xml              # Native Hibernate Configuration
-└── pom.xml                                    # Dependencies (Spring Data JPA & MySQL)
+Build Tool: Maven
+
+IDE: IntelliJ IDEA
+
+Fitur & Pembaruan Terakhir
+
+Migrasi Struktur: Mengubah struktur awal dari Spring Boot menjadi Java Web Native (WAR/JSP/Servlet).
+
+Konfigurasi Hibernate: Pembaruan file hibernate.cfg.xml untuk koneksi ke database kelompok8_hibernate menggunakan kredensial root.
+
+Mapping Entity: Penyesuaian anotasi @Column(name = "user_name") pada model User.java agar selaras dengan skema database lama (mencegah field default value error).
+
+Auto-Seeding Data: Penambahan logika di MainApp.java untuk otomatis menyisipkan 3 akun default anggota kelompok saat aplikasi pertama kali dijalankan.
+
+Cara Menjalankan Aplikasi
+
+1. Persiapan Database
+
+Pastikan modul MySQL pada XAMPP sudah berjalan (Start).
+
+Buat database baru bernama kelompok8_hibernate di phpMyAdmin (jika belum ada).
+
+Struktur tabel users akan digenerate otomatis oleh Hibernate.
+
+2. Pengujian Koneksi (Console)
+
+Untuk memastikan Hibernate terkoneksi dan data default masuk ke database:
+
+Buka file src/main/java/com/example/MainApp.java di IntelliJ.
+
+Klik tombol Run 'MainApp.main()'.
+
+Pastikan di konsol muncul pesan >>> [SUCCESS] Login Berhasil dan Process finished with exit code 0.
+
+3. Menjalankan Web (Tomcat)
+
+Buka menu Run > Edit Configurations di IntelliJ.
+
+Tambahkan Tomcat Server > Local.
+
+Di tab Deployment, tambahkan Artifact hibernate-kelompok8:war exploded (atau .war).
+
+Atur Application context menjadi /hibernate-kelompok8.
+
+Klik Apply lalu jalankan (Play) server Tomcat.
+
+Browser akan terbuka otomatis di http://localhost:8080/hibernate-kelompok8/.
+
+Kredensial Login
+
+Gunakan salah satu akun berikut untuk masuk ke dalam aplikasi web:
+
+Username: shofwatunnisa | Password: 123456
+
+Username: sitidibaj | Password: 123456
+
+Username: rusmin | Password: 123456

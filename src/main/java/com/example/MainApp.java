@@ -10,19 +10,29 @@ public class MainApp {
         try {
             UserDao userDao = new UserDao();
 
-            // Validasi akun default (admin / 12345)
-            boolean isValid = userDao.validate("admin", "12345");
-            if (!isValid) {
-                System.out.println("User admin belum ada di database, menambahkan user default...");
-                userDao.saveUser(new User("admin", "12345"));
-                System.out.println("User default (admin / 12345) berhasil ditambahkan.");
-            } else {
-                System.out.println("User default (admin / 12345) sudah ada di database dan valid!");
+            if (!userDao.validate("shofwatunnisa", "123456")) {
+                System.out.println("Menambahkan akun Shofwatunnisa...");
+                userDao.saveUser(new User("Shofwatunnisa", "", "shofwatunnisa", "123456"));
             }
 
-            System.out.println("Koneksi Hibernate ke database 'kelompok8' BERHASIL!");
+            if (!userDao.validate("sitidibaj", "123456")) {
+                System.out.println("Menambahkan akun Siti Dibaj...");
+                userDao.saveUser(new User("Siti Dibaj", "Trikusuma", "sitidibaj", "123456"));
+            }
+
+            if (!userDao.validate("rusmin", "123456")) {
+                System.out.println("Menambahkan akun Rusmin...");
+                userDao.saveUser(new User("Rusmin", "Nuryadin", "rusmin", "123456"));
+            }
+
+            boolean isValid = userDao.validate("shofwatunnisa", "123456");
+            if (isValid) {
+                System.out.println("\n>>> [SUCCESS] Login Berhasil untuk user 'shofwatunnisa'!");
+            }
+
+            System.out.println("Koneksi Hibernate ke database BERHASIL!");
         } catch (Exception e) {
-            System.err.println("Terjadi kesalahan saat menghubungkan ke database kelompok8: " + e.getMessage());
+            System.err.println("Terjadi kesalahan saat menghubungkan ke database: " + e.getMessage());
             e.printStackTrace();
         } finally {
             HibernateUtil.shutdown();

@@ -7,22 +7,20 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 public class UserDao {
-    
+
     public boolean validate(String username, String password) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            // Mencari user berdasarkan inputan username
             Query<User> query = session.createQuery("FROM User U WHERE U.username = :uname", User.class);
             query.setParameter("uname", username);
             User user = query.uniqueResult();
-            
-            // Cek apakah user ada dan passwordnya cocok
+
             if (user != null && user.getPassword().equals(password)) {
-                return true; 
+                return true;
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return false; 
+        return false;
     }
 
     public void saveUser(User user) {
@@ -32,11 +30,10 @@ public class UserDao {
             session.persist(user);
             transaction.commit();
         } catch (Exception e) {
-            if (transaction != null) {
+            if (transaction != null && transaction.isActive()) {
                 transaction.rollback();
             }
             e.printStackTrace();
         }
     }
 }
-
