@@ -8,11 +8,11 @@ Aplikasi ini mengimplementasikan konsep dasar Object-Relational Mapping (ORM) de
 
 ## Anggota Kelompok 8
 
-| No | Nama | NIM | Peran |
-| :-: | :--- | :--- | :--- |
-| 1 | Shofwatunnisa | 12409011050121 | Setup Project, Entity Mapping, dan Execution |
-| 2 | Siti Dibaj Trikusuma | 12409011050117 | Configuration dan Testing |
-| 3 | Rusmin Nuryadin | 12409011050120 | Database dan Documentation |
+| No | Nama | NIM 
+| :-: | :--- | :--- 
+| 1 | Shofwatunnisa | 12409011050121 
+| 2 | Siti Dibaj Trikusuma | 12409011050117 
+| 3 | Rusmin Nuryadin | 12409011050120
 
 ---
 
